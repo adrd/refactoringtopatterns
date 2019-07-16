@@ -24,38 +24,60 @@ namespace RefactoringToPatterns.ReplaceConstructorsWithCreationMethods.MyWork
         [Test]
         public void test_term_loan_no_payments()
         {
-            Loan loan = new Loan(Commitment, RiskRating, _maturity);
-            Assert.IsInstanceOf(typeof(CapitalStrategyTermLoan), loan.CapitalStrategy);
+            //Loan loan = new Loan(Commitment, RiskRating, _maturity);
+            //Assert.IsInstanceOf(typeof(CapitalStrategyTermLoan), loan.CapitalStrategy);
+
+            Loan termLoan = Loan.CreateTermLoan(Commitment, RiskRating, this._maturity);
+
+            Assert.IsInstanceOf(typeof(CapitalStrategyTermLoan), termLoan.CapitalStrategy);
         }
 
         [Test]
         public void test_term_loan_one_payment()
         {
-            Loan loan = new Loan(Commitment, RiskRating, _maturity);
-            Assert.IsInstanceOf(typeof(CapitalStrategyTermLoan), loan.CapitalStrategy);
+            //Loan loan = new Loan(Commitment, RiskRating, _maturity);
+            //Assert.IsInstanceOf(typeof(CapitalStrategyTermLoan), loan.CapitalStrategy);
+
+            Loan termLoan = Loan.CreateTermLoan(Commitment, RiskRating, this._maturity);
+
+            Assert.IsInstanceOf(typeof(CapitalStrategyTermLoan), termLoan.CapitalStrategy);
         }
 
         [Test]
         public void test_revolver_loan_no_payments()
         {
-            Loan loan = new Loan(Commitment, RiskRating, null, _expiry);
-            Assert.IsInstanceOf(typeof(CapitalStrategyRevolver), loan.CapitalStrategy);
+            //Loan loan = new Loan(Commitment, RiskRating, null, _expiry);
+            //Assert.IsInstanceOf(typeof(CapitalStrategyRevolver), loan.CapitalStrategy);
+
+            Loan revolver = Loan.CreateRevolver(Commitment, RiskRating, null, _expiry);
+
+            Assert.IsInstanceOf(typeof(CapitalStrategyRevolver), revolver.CapitalStrategy);
         }
 
         [Test]
         public void test_RCTL_loan_one_payment()
         {
-            Loan loan = new Loan(Commitment, Outstanding, RiskRating, _maturity, _expiry);
-            Assert.IsInstanceOf(typeof(CapitalStrategyRCTL), loan.CapitalStrategy);
+            //Loan loan = new Loan(Commitment, Outstanding, RiskRating, _maturity, _expiry);
+            //Assert.IsInstanceOf(typeof(CapitalStrategyRCTL), loan.CapitalStrategy);
+
+            Loan rctl = Loan.CreateRCTL(Commitment, Outstanding, RiskRating, _maturity, _expiry);
+
+            Assert.IsInstanceOf(typeof(CapitalStrategyRCTL), rctl.CapitalStrategy);
         }
 
         [Test]
-        public void test_term_loan_with_risk_adjusted_capital_strategy() {
-            Loan loan = new Loan(_riskAdjustedCapitalStrategy, 
-                                 Commitment, Outstanding, RiskRating, 
-                                 _maturity, null);
+        public void test_term_loan_with_risk_adjusted_capital_strategy()
+        {
+            //Loan loan = new Loan(_riskAdjustedCapitalStrategy, 
+            //                     Commitment, Outstanding, RiskRating, 
+            //                     _maturity, null);
             
-            Assert.IsInstanceOf(typeof(RiskAdjustedCapitalStrategy), loan.CapitalStrategy);
+            //Assert.IsInstanceOf(typeof(RiskAdjustedCapitalStrategy), loan.CapitalStrategy);
+
+            Loan termLoan = Loan.CreateTermLoan(this._riskAdjustedCapitalStrategy, Commitment, Outstanding, RiskRating,
+                                this._maturity);
+
+            Assert.IsInstanceOf(typeof(RiskAdjustedCapitalStrategy), termLoan.CapitalStrategy);
         }
     }
 }

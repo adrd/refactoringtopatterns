@@ -2,6 +2,7 @@
 
 namespace ReplaceConstructorsWithCreationMethods.MyWork
 {
+    // Var 1 - Replace Constructors With Creation Methods
 	public class Loan
 	{
 		private double _commitment;
@@ -11,33 +12,33 @@ namespace ReplaceConstructorsWithCreationMethods.MyWork
 		private readonly DateTime? _expiry;
 		private readonly CapitalStrategy _capitalStrategy;
 
-        public Loan(double commitment, int riskRating, DateTime? maturity)
-            : this(commitment, 0.00, riskRating, maturity, null)
-		{
+  //      public Loan(double commitment, int riskRating, DateTime? maturity)
+  //          : this(commitment, 0.00, riskRating, maturity, null)
+		//{
 
-		}
+		//}
 
-		public Loan(double commitment, int riskRating, DateTime? maturity, DateTime? expiry)
-			: this(commitment, 0.00, riskRating, maturity, expiry)
-		{
+		//public Loan(double commitment, int riskRating, DateTime? maturity, DateTime? expiry)
+		//	: this(commitment, 0.00, riskRating, maturity, expiry)
+		//{
 
-		}
+		//}
 
-		public Loan(double commitment, double outstanding, 
-                    int riskRating, DateTime? maturity, DateTime? expiry)
-			: this(null, commitment, outstanding, riskRating, maturity, expiry)
-		{
+		//private Loan(double commitment, double outstanding, 
+  //                  int riskRating, DateTime? maturity, DateTime? expiry)
+		//	: this(null, commitment, outstanding, riskRating, maturity, expiry)
+		//{
 
-		}
+		//}
 
-		public Loan(CapitalStrategy capitalStrategy, double commitment,
-					int riskRating, DateTime? maturity, DateTime? expiry)
-			: this(capitalStrategy, commitment, 0.00, riskRating, maturity, expiry)
-		{
+		//public Loan(CapitalStrategy capitalStrategy, double commitment,
+		//			int riskRating, DateTime? maturity, DateTime? expiry)
+		//	: this(capitalStrategy, commitment, 0.00, riskRating, maturity, expiry)
+		//{
 
-		}
+		//}
 
-		public Loan(CapitalStrategy capitalStrategy, double commitment,
+		private Loan(CapitalStrategy capitalStrategy, double commitment,
 					double outstanding, int riskRating,
                     DateTime? maturity, DateTime? expiry)
 		{
@@ -66,5 +67,78 @@ namespace ReplaceConstructorsWithCreationMethods.MyWork
 				return _capitalStrategy;
 			}
 		}
-	}
+
+        public static Loan CreateTermLoan(Double commitment, Int32 riskRating, DateTime? maturity)
+        {
+            return new Loan(null, commitment, 0, riskRating, maturity, null);
+        }
+
+        public static Loan CreateTermLoan(RiskAdjustedCapitalStrategy riskAdjustedCapitalStrategy, Double commitment, 
+                                          Double outstanding, Int32 riskRating, DateTime? maturity)
+        {
+            return new Loan(riskAdjustedCapitalStrategy, commitment, outstanding, riskRating, maturity, null);
+        }
+
+        public static Loan CreateRevolver(Double commitment, Int32 riskRating, DateTime? maturity, DateTime? expiry)
+        {
+            return new Loan(null, commitment, 0.00, riskRating, maturity, expiry);
+        }
+
+        public static Loan CreateRevolver(CapitalStrategyRevolver capitalStrategyRevolver, Double commitment,
+                                          Int32 riskRating, DateTime? maturity, DateTime? expiry)
+        {
+            return new Loan(capitalStrategyRevolver, commitment, 0.00, riskRating, maturity, expiry);
+        }
+
+
+        public static Loan CreateRCTL(Double commitment, Double outstanding, Int32 riskRating, DateTime? maturity, DateTime? expiry)
+        {
+            return new Loan(null, commitment, outstanding, riskRating, maturity, expiry);
+        }
+
+        public static Loan CreateRCTL(CapitalStrategyRCTL capitalStrategyRctl, Double commitment, Double outstanding, 
+                                      Int32 riskRating, DateTime? maturity, DateTime? expiry)
+        {
+            return new Loan(capitalStrategyRctl, commitment, outstanding, riskRating, maturity, expiry);
+        }
+    }
+
+    // Var 2 - Factory Class
+    // tb constructorul din Loan sa fie facut internal pentru a limita scopul instantierii
+    //public class LoanFactory
+    //{
+    //    public static Loan CreateTermLoan(Double commitment, Int32 riskRating, DateTime? maturity)
+    //    {
+    //        return new Loan(null, commitment, 0, riskRating, maturity, null);
+    //    }
+
+    //    public static Loan CreateTermLoan(RiskAdjustedCapitalStrategy riskAdjustedCapitalStrategy, Double commitment, 
+    //        Double outstanding, Int32 riskRating, DateTime? maturity)
+    //    {
+    //        return new Loan(riskAdjustedCapitalStrategy, commitment, outstanding, riskRating, maturity, null);
+    //    }
+
+    //    public static Loan CreateRevolver(Double commitment, Int32 riskRating, DateTime? maturity, DateTime? expiry)
+    //    {
+    //        return new Loan(null, commitment, 0.00, riskRating, maturity, expiry);
+    //    }
+
+    //    public static Loan CreateRevolver(CapitalStrategyRevolver capitalStrategyRevolver, Double commitment,
+    //        Int32 riskRating, DateTime? maturity, DateTime? expiry)
+    //    {
+    //        return new Loan(capitalStrategyRevolver, commitment, 0.00, riskRating, maturity, expiry);
+    //    }
+
+
+    //    public static Loan CreateRCTL(Double commitment, Double outstanding, Int32 riskRating, DateTime? maturity, DateTime? expiry)
+    //    {
+    //        return new Loan(null, commitment, outstanding, riskRating, maturity, expiry);
+    //    }
+
+    //    public static Loan CreateRCTL(CapitalStrategyRCTL capitalStrategyRctl, Double commitment, Double outstanding, 
+    //        Int32 riskRating, DateTime? maturity, DateTime? expiry)
+    //    {
+    //        return new Loan(capitalStrategyRctl, commitment, outstanding, riskRating, maturity, expiry);
+    //    }
+    //}
 }
