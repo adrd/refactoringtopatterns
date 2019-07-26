@@ -1,37 +1,14 @@
-﻿namespace PolymorphicCreationWithFactoryMethod.MyWork
+﻿using System;
+
+namespace PolymorphicCreationWithFactoryMethod.MyWork
 {
-    public class DOMBuilderTest: TestCase
+    public class DOMBuilderTest: AbstractBuilderTest
     {
-        public OutputBuilder Builder { get; private set; }
-
-        public void TestAddAboveRoot()
+        protected override OutputBuilder CreateBuilder(String rootName)
         {
-            string invalidResult =
-                "<orders>" +
-                    "<order>" +
-                    "</order>" +
-                "</orders>" +
-                "<customer>" +
-                "</customer>";
-
-            Builder = new DOMBuilder("orders");
-
-            Builder.AddBelow("order");
-
-            try
-            {
-                Builder.AddAbove("customer");
-                Fail("expecting RuntimeException");
-            }
-            catch (RuntimeException ignored)
-            {
-
-            }
+            return new DOMBuilder(rootName);
         }
 
-        private void Fail(string failureMessage)
-        {
-
-        }
+        
     }
 }
