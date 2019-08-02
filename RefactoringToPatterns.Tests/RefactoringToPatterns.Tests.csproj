@@ -35,6 +35,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EncapsulateClassesWithFactory\MyWork\Mappers\DescriptorMapperTests.cs" />
+    <Compile Include="EncapsulateCompositeWithBuilder\MyWork\TagBuilderTests.cs" />
     <Compile Include="ReplaceConstructorsWithCreationMethods\InitialCode\CapitalCalculationTests.cs" />
     <Compile Include="ReplaceConstructorsWithCreationMethods\MyWork\CapitalCalculationTests.cs" />
     <Compile Include="ChainConstructors\InitialCode\CapitalCalculationTests.cs" />
@@ -105,25 +106,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <Folder Include="PolymorphicCreationWithFactoryMethod\" />
-    <Folder Include="PolymorphicCreationWithFactoryMethod\InitialCode\" />
-    <Folder Include="PolymorphicCreationWithFactoryMethod\MyWork\" />
-    <Folder Include="ReplaceConditionalLogicWithStrategy\" />
-    <Folder Include="ReplaceConditionalLogicWithStrategy\InitialCode\" />
-    <Folder Include="ReplaceConditionalLogicWithStrategy\MyWork\" />
-    <Folder Include="FormTemplateMethod\" />
-    <Folder Include="FormTemplateMethod\InitialCode\" />
-    <Folder Include="FormTemplateMethod\MyWork\" />
-    <Folder Include="ComposeMethod\" />
-    <Folder Include="ComposeMethod\InitialCode\" />
-    <Folder Include="ComposeMethod\MyWork\" />
-    <Folder Include="ReplaceImplicitTreeWithComposite\" />
-    <Folder Include="ReplaceImplicitTreeWithComposite\InitialCode\" />
-    <Folder Include="ReplaceImplicitTreeWithComposite\MyWork\" />
-    <Folder Include="EncapsulateCompositeWithBuilder\" />
-    <Folder Include="EncapsulateCompositeWithBuilder\InitialCode\" />
-    <Folder Include="EncapsulateCompositeWithBuilder\MyWork\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

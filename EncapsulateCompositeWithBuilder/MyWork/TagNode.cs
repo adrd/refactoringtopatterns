@@ -1,53 +1,135 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace EncapsulateCompositeWithBuilder.MyWork
 {
     public class TagNode
     {
-        private StringBuilder attributes;
-        private IList<TagNode> children = new List<TagNode>();
-        private string name;
-        private string value = string.Empty;
+        private readonly String _name;
+        private readonly StringBuilder _attributes;
+        private String _value;
+        private readonly IList<TagNode> _children;
+        private TagNode _parentNode;
 
-        public TagNode(string name)
+        public TagNode(String name)
         {
-            this.name = name;
-            this.attributes = new StringBuilder();
+            this._name = name;
+            this._attributes = new StringBuilder();
+            this._value = String.Empty;
+            this._children = new List<TagNode>();
+            this._parentNode = null;
         }
 
-        public void Add(TagNode tagNode)
+        public TagNode ParentNode
         {
-            this.children.Add(tagNode);
+            get => this._parentNode;
+            private set => this._parentNode = value;
         }
 
-        public void AddAttribute(string attribute, string value)
+        public String Name => this._name;
+
+        public void Add(TagNode childNode)
         {
-            this.attributes.Append(" ");
-            this.attributes.Append(attribute);
-            this.attributes.Append("='");
-            this.attributes.Append(value);
-            this.attributes.Append("'");
+            childNode.ParentNode = this;       // child node takes current node as parent 
+            this._children.Add(childNode);     // parent node adds child node to children collection
         }
 
-        public void AddValue(string value)
+        public void AddAttribute(String attribute, String value)
         {
-            this.value = value;
+            this._attributes.Append(" ");
+            this._attributes.Append(attribute);
+            this._attributes.Append("='");
+            this._attributes.Append(value);
+            this._attributes.Append("'");
         }
 
-        public override string ToString()
+        public void AddValue(String value)
         {
-            var result =
-                "<" + this.name + this.attributes + ">";
+            this._value = value;
+        }
 
-            foreach (TagNode tagNode in this.children)
+        public override String ToString()
+        {
+            String result = "<" + this._name + this._attributes + ">";
+
+            if (this.ShouldOpenTagSelfClose())
+                return result.Replace(">", "/>");
+
+            foreach (TagNode tagNode in this._children)
             {
                 result += tagNode.ToString();
             }
 
-            result += this.value +
-                "</" + this.name + ">";
+            result += this._value + "</" + this._name + ">";
+
             return result;
+        }
+
+        private Boolean ShouldOpenTagSelfClose()
+        {
+            return !this.HasValue() && !this.HasChildren();
+        }
+
+        private Boolean HasChildren()
+        {
+            return this._children.Count > 0;
+        }
+
+        private Boolean HasValue()
+        {
+            return !this._value.Equals(String.Empty);
+        }
+
+        public void AppendContentsTo(StringBuilder xmlResult)
+        {
+            this.WriteOpenTagTo(xmlResult);
+
+            if (this.ShouldOpenTagSelfClose())
+            {
+                this.SelfCloseOpenTag(xmlResult);
+                return;
+            }
+
+            this.WriteChildrenTo(xmlResult);
+
+            this.WriteValueTo(xmlResult);
+
+            this.WriteEndTagTo(xmlResult);
+        }
+
+        private void WriteOpenTagTo(StringBuilder xmlResult)
+        {
+            xmlResult.Append("<");
+            xmlResult.Append(this._name);
+            xmlResult.Append(this._attributes);
+            xmlResult.Append(">");
+        }
+
+        private void SelfCloseOpenTag(StringBuilder xmlResult)
+        {
+            xmlResult.Remove(xmlResult.Length-1, 1).Append("/>");
+        }
+
+        private void WriteChildrenTo(StringBuilder xmlResult)
+        {
+            foreach (TagNode tagNode in this._children)
+            {
+                tagNode.AppendContentsTo(xmlResult);
+            }
+        }
+
+        private void WriteValueTo(StringBuilder xmlResult)
+        {
+            if (this.HasValue())
+                xmlResult.Append(this._value);
+        }
+
+        private void WriteEndTagTo(StringBuilder xmlResult)
+        {
+            xmlResult.Append("</");
+            xmlResult.Append(this._name);
+            xmlResult.Append(">");
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 using EncapsulateCompositeWithBuilder.MyWork;
 
 namespace RefactoringToPatterns.EncapsulateCompositeWithBuilder.MyWork
@@ -6,18 +7,18 @@ namespace RefactoringToPatterns.EncapsulateCompositeWithBuilder.MyWork
     [TestFixture]
     public class TagNodeTests
     {
-        private const string SamplePrice = "2.39";
+        private const String SamplePrice = "2.39";
 
         [Test]
         public void TestSimpleTagWithOneAttributeAndValue()
         {
-            var expected =
-                "<price currency=" +
-                "'" +
-                "USD" +
-                "'>" +
-                SamplePrice +
-                "</price>";
+            String expected =
+                    "<price currency=" +
+                    "'" +
+                    "USD" +
+                    "'>" +
+                    SamplePrice +
+                    "</price>";
 
             TagNode priceTag = new TagNode("price");
             priceTag.AddAttribute("currency", "USD");
@@ -28,11 +29,10 @@ namespace RefactoringToPatterns.EncapsulateCompositeWithBuilder.MyWork
         [Test]
         public void TestCompositeTagoneChild()
         {
-            var expected =
-                "<product>" +
-                    "<price>" +
-                    "</price>" +
-                "</product>"; 
+            String expected =
+                    "<product>" +
+                        "<price/>" +
+                    "</product>"; 
 
             TagNode productTag = new TagNode("product");
             productTag.Add(new TagNode("price"));
@@ -43,13 +43,12 @@ namespace RefactoringToPatterns.EncapsulateCompositeWithBuilder.MyWork
         [Test]
         public void TestAddingChildrenAndGrandChildren()
         {
-            var expected =
-                "<orders>" +
-                    "<order>" +
-                        "<product>" +
-                        "</product>" +
-                    "</order>" +
-                "</orders>";
+            String expected =
+                    "<orders>" +
+                        "<order>" +
+                            "<product/>" +
+                        "</order>" +
+                    "</orders>";
 
             TagNode ordersTag = new TagNode("orders");
             TagNode orderTag = new TagNode("order");
@@ -57,6 +56,29 @@ namespace RefactoringToPatterns.EncapsulateCompositeWithBuilder.MyWork
             ordersTag.Add(orderTag);
 
             Assert.AreEqual(expected, ordersTag.ToString());
+        }
+
+        [Test]
+        public void TestParents()
+        {
+            TagNode root = new TagNode("root");
+            Assert.Null(root.ParentNode);
+
+            TagNode childNode = new TagNode("child");
+            root.Add(childNode);
+
+            Assert.AreEqual(root, childNode.ParentNode);
+            Assert.AreEqual("root", childNode.ParentNode.Name);
+        }
+
+        [Test]
+        public void TestSelfClosingSingularTag()
+        {
+            String expected = "<flavors/>";
+
+            TagNode flavorsTag = new TagNode("flavors");
+
+            Assert.AreEqual(expected, flavorsTag.ToString());
         }
     }
 }
