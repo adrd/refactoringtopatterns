@@ -12,12 +12,12 @@ namespace ReplaceConditionalLogicWithStrategy.MyWork
         IList<Payment> _payments = new List<Payment>();
         private DateTime? _today = DateTime.Now;
         private DateTime _start;
-        private long MILLIS_PER_DAY = 86400000;
-        private long DAYS_PER_YEAR = 365;
+        
         private double _riskRating;
         private double _unusedPercentage;
+        private readonly CapitalStrategy _capitalStrategy = null;
 
-        public Loan(double commitment, double notSureWhatThisIs, DateTime start, DateTime? expiry, DateTime? maturity, int riskRating)
+        private Loan(double commitment, double notSureWhatThisIs, DateTime start, DateTime? expiry, DateTime? maturity, int riskRating, CapitalStrategy capitalStrategy)
         {
             this._expiry = expiry;
             this._commitment = commitment;
@@ -26,25 +26,62 @@ namespace ReplaceConditionalLogicWithStrategy.MyWork
             this._maturity = maturity;
             this._riskRating = riskRating;
             this._unusedPercentage = 1.0;
+
+            this._capitalStrategy = capitalStrategy;
         }
 
-        public static Loan NewTermLoan(double commitment, DateTime start, DateTime maturity, int riskRating)
+        public IList<Payment> GetPayments()
+        {
+            return this._payments;
+        }
+
+        public DateTime GetStart()
+        {
+            return this._start;
+        }
+
+        public DateTime? GetToday()
+        {
+            return this._today;
+        }
+
+        public Double GetRiskRating()
+        {
+            return this._riskRating;
+        }
+
+        public Double GetCommitment()
+        {
+            return this._commitment;
+        }
+
+        public DateTime? GetMaturity()
+        {
+            return this._maturity;
+        }
+
+        public DateTime? GetExpiry()
+        {
+            return this._expiry; 
+        }
+
+        public static Loan NewTermLoan(Double commitment, DateTime start, DateTime maturity, Int32 riskRating)
         {
             return new Loan(commitment, commitment, start, null, 
-                            maturity, riskRating);
+                            maturity, riskRating, new CapitalStrategyTermLoan());
         }
 
-        public static Loan NewRevolver(double commitment, DateTime start, DateTime expiry, int riskRating) 
+        public static Loan NewRevolver(Double commitment, DateTime start, DateTime expiry, Int32 riskRating) 
         {
             return new Loan(commitment, 0, start, expiry,
-                            null, riskRating);
+                            null, riskRating, new CapitalStrategyRevolver());
         }
 
         public static Loan NewAdvisedLine(double commitment, DateTime start, DateTime expiry, int riskRating)
         {
             if (riskRating > 3) return null;
             Loan advisedLine = new Loan(commitment, 0, start, expiry,
-                            null, riskRating);
+                            null, riskRating, new CapitalStrategyAdvisedLine());
             advisedLine.SetUnusedPercentage(0.1);
             return advisedLine;
         }
@@ -54,66 +91,22 @@ namespace ReplaceConditionalLogicWithStrategy.MyWork
             _payments.Add(new Payment(amount, paymentDate));
         }
 
-        public double Capital() {
-            if(_expiry == null && _maturity != null)
-                return _commitment * Duration() * RiskFactor();
-            if(_expiry != null && _maturity == null) {
-                if(GetUnusedPercentage() != 1.0) {
-                    return _commitment * GetUnusedPercentage() * Duration() * RiskFactor();
-                }
-                else {
-                    return (OutstandingRiskAmount() * Duration() * RiskFactor())
-                        + (UnusedRiskAmount() * Duration() * UnusedRiskFactor());
-                }
-            }
-            return 0.0;
+        public Double Capital() {
+            return this._capitalStrategy.Capital(this);
         }
 
-        public double Duration()
+        public Double Duration()
         {
-            if (_expiry == null && _maturity != null)
-            {
-                return WeightedAverageDuration();
-            }
-            else if (_expiry != null && _maturity == null)
-            {
-                return YearsTo(_expiry);
-            }
-            return 0.0;
+            return this._capitalStrategy.Duration(this);
         }
 
-        private double WeightedAverageDuration()
-        { 
-            double duration = 0.0;
-            double weightedAverage = 0.0;
-            double sumOfPayments = 0.0;
+        
 
-            foreach (var payment in _payments)
-            {
-                sumOfPayments += payment.Amount;
-                weightedAverage += YearsTo(payment.Date) * payment.Amount;
-            }
+        
 
-            if (_commitment != 0.0)
-            {
-                duration = weightedAverage / sumOfPayments;
-            }
+        
 
-            return duration;
-        }
-
-        private double YearsTo(DateTime? endDate)
-        {
-            DateTime? beginDate = (_today == null ? _start : _today);
-            return (double)((endDate?.Ticks - beginDate?.Ticks) / MILLIS_PER_DAY / DAYS_PER_YEAR);
-        }
-
-        private double RiskFactor()
-        {
-            return InitialCode.RiskFactor.GetFactors().ForRating(_riskRating);
-        }
-
-        private double GetUnusedPercentage()
+        internal double GetUnusedPercentage()
         {
             return _unusedPercentage;
         }
@@ -123,17 +116,14 @@ namespace ReplaceConditionalLogicWithStrategy.MyWork
             _unusedPercentage = unusedPercentage;
         }
 
-        private double UnusedRiskAmount()
+        internal Double UnusedRiskAmount()
         {
             return (_commitment - _outstanding);
         }
 
-        private double UnusedRiskFactor()
-        {
-            return UnusedRiskFactors.GetFactors().ForRating(_riskRating);
-        }
+        
 
-        private double OutstandingRiskAmount()
+        internal double OutstandingRiskAmount()
         {
             return _outstanding;
         }
