@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ReplaceConditionalLogicWithStrategy.MyWork.Strategies;
 
 namespace ReplaceConditionalLogicWithStrategy.MyWork
 {

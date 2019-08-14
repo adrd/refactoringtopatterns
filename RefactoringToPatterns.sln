@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReplaceImplicitTreeWithComp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncapsulateCompositeWithBuilder", "EncapsulateCompositeWithBuilder\EncapsulateCompositeWithBuilder.csproj", "{9CA5D6B8-43D4-4325-9E7D-BF7E1E2D4C51}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReplaceStateAlteringConditionalsWithState", "ReplaceStateAlteringConditionalsWithState\ReplaceStateAlteringConditionalsWithState.csproj", "{B700330A-E5EC-498F-9DD4-91D7E91A1ACB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,6 +70,10 @@ Global
 		{9CA5D6B8-43D4-4325-9E7D-BF7E1E2D4C51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CA5D6B8-43D4-4325-9E7D-BF7E1E2D4C51}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CA5D6B8-43D4-4325-9E7D-BF7E1E2D4C51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B700330A-E5EC-498F-9DD4-91D7E91A1ACB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B700330A-E5EC-498F-9DD4-91D7E91A1ACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B700330A-E5EC-498F-9DD4-91D7E91A1ACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B700330A-E5EC-498F-9DD4-91D7E91A1ACB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

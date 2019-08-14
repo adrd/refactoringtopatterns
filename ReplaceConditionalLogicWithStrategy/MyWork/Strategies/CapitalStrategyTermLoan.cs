@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ReplaceConditionalLogicWithStrategy.MyWork
+namespace ReplaceConditionalLogicWithStrategy.MyWork.Strategies
 {
     public class CapitalStrategyTermLoan : CapitalStrategy
     {
