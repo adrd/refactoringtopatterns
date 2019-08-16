@@ -1,61 +1,75 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 
 namespace ReplaceImplicitTreeWithComposite.MyWork
 {
-
     public class OrdersWriter
     {
-        private Orders orders;
+        private readonly Orders _orders;
 
         public OrdersWriter(Orders orders)
         {
-            this.orders = orders;
+            this._orders = orders;
         }
 
-        public string GetContents()
+        // Example of Compose Method
+        public String GetContents()
         {
             StringBuilder xml = new StringBuilder();
-            xml.Append("<orders>");
-            for (int i = 0; i < this.orders.OrderCount(); i++)
+            this.WriteOrderTo(xml);
+            return xml.ToString();
+        }
+
+        private void WriteOrderTo(StringBuilder xml)
+        {
+            TagNode ordersNode = new TagNode("orders");
+
+            for (Int32 i = 0; i < this._orders.OrderCount(); i++)
             {
-                Order order = this.orders.Order(i);
-                xml.Append("<order");
-                xml.Append(" id='");
-                xml.Append(order.OrderId());
-                xml.Append("'>");
-                for (int j = 0; j < order.ProductCount(); j++)
-                {
-                    Product product = order.Product(j);
-                    xml.Append("<product");
-                    xml.Append(" id='");
-                    xml.Append(product.ID);
-                    xml.Append("'");
-                    xml.Append(" color='");
-                    xml.Append(this.ColorFor(product));
-                    xml.Append("'");
-                    if (product.Size != (int)ProductSize.NotApplicable)
-                    {
-                        xml.Append(" size='");
-                        xml.Append(this.SizeFor(product));
-                        xml.Append("'");
-                    }
+                Order order = this._orders.Order(i);
 
-                    xml.Append(">");
-                    xml.Append("<price");
-                    xml.Append(" currency='");
-                    xml.Append(this.CurrencyFor(product));
-                    xml.Append("'>");
-                    xml.Append(product.Price);
-                    xml.Append("</price>");
-                    xml.Append(product.Name);
-                    xml.Append("</product>");
-                }
+                TagNode orderNode = new TagNode("order");
+                orderNode.AddAttribute("id", order.OrderId().ToString());
 
-                xml.Append("</order>");
+                this.WriteProductsTo(orderNode, order);
+
+                ordersNode.Add(orderNode);   // add child node to parent node
             }
 
-            xml.Append("</orders>");
-            return xml.ToString();
+            xml.Append(ordersNode.ToString());
+        }
+
+        private void WriteProductsTo(TagNode orderNode, Order order)
+        {
+            for (Int32 j = 0; j < order.ProductCount(); j++)
+            {
+                Product product = order.Product(j);
+
+                TagNode productNode = new TagNode("product");
+                productNode.AddAttribute("id", product.ID.ToString());
+                productNode.AddAttribute("color", this.ColorFor(product));
+
+                if (product.Size != (Int32) ProductSize.NotApplicable)
+                {
+                    productNode.AddAttribute("size", this.SizeFor(product));
+                }
+
+                this.WritePriceTo(productNode, product);
+                
+                productNode.AddValue(product.Name);
+
+                orderNode.Add(productNode);  // add child node to parent node
+            }
+        }
+
+        private void WritePriceTo(TagNode productNode, Product product)
+        {
+            TagNode priceNode = new TagNode("price");
+
+            priceNode.AddAttribute("currency", this.CurrencyFor(product));
+            priceNode.AddValue(product.Price);
+
+            productNode.Add(priceNode);  // add child node to parent node
         }
 
         private string CurrencyFor(Product product)

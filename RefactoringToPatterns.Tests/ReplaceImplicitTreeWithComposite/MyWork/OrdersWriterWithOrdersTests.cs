@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using ReplaceImplicitTreeWithComposite.MyWork;
 
-namespace RefactoringToPatterns.ReplaceImplicitTreeWithComposite.MyWork
+namespace RefactoringToPatterns.Tests.ReplaceImplicitTreeWithComposite.MyWork
 {
     [TestFixture()]
     public class OrdersWriterWithOrdersTests
@@ -40,6 +40,7 @@ namespace RefactoringToPatterns.ReplaceImplicitTreeWithComposite.MyWork
                     "</product>" + 
                 "</order>" + 
             "</orders>";
+
             Assert.AreEqual(expectedOrder, this.ordersWriter.GetContents());
         }
     }

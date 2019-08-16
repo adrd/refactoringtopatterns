@@ -63,6 +63,7 @@
     <Compile Include="ReplaceImplicitTreeWithComposite\MyWork\OrdersWriterWithOrdersTests.cs" />
     <Compile Include="EncapsulateCompositeWithBuilder\InitialCode\TagNodeTests.cs" />
     <Compile Include="EncapsulateCompositeWithBuilder\MyWork\TagNodeTests.cs" />
+    <Compile Include="ReplaceImplicitTreeWithComposite\MyWork\TagNodeTests.cs" />
     <Compile Include="ReplaceStateAlteringConditionalsWithState\InitialCode\SystemPermissionTests.cs" />
     <Compile Include="ReplaceStateAlteringConditionalsWithState\MyWork\SystemPermissionTests.cs" />
   </ItemGroup>
