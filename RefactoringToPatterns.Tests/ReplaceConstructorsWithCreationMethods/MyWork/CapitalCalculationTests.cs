@@ -1,8 +1,8 @@
-﻿﻿using NUnit.Framework;
-using System;
+﻿using System;
+using NUnit.Framework;
 using ReplaceConstructorsWithCreationMethods.MyWork;
 
-namespace RefactoringToPatterns.ReplaceConstructorsWithCreationMethods.MyWork
+namespace RefactoringToPatterns.Tests.ReplaceConstructorsWithCreationMethods.MyWork
 {
     [TestFixture]
     public class CapitalCalculationTests
@@ -49,7 +49,7 @@ namespace RefactoringToPatterns.ReplaceConstructorsWithCreationMethods.MyWork
             //Loan loan = new Loan(Commitment, RiskRating, null, _expiry);
             //Assert.IsInstanceOf(typeof(CapitalStrategyRevolver), loan.CapitalStrategy);
 
-            Loan revolver = Loan.CreateRevolver(Commitment, RiskRating, null, _expiry);
+            Loan revolver = Loan.CreateRevolver(Commitment, RiskRating, null, this._expiry);
 
             Assert.IsInstanceOf(typeof(CapitalStrategyRevolver), revolver.CapitalStrategy);
         }
@@ -60,7 +60,7 @@ namespace RefactoringToPatterns.ReplaceConstructorsWithCreationMethods.MyWork
             //Loan loan = new Loan(Commitment, Outstanding, RiskRating, _maturity, _expiry);
             //Assert.IsInstanceOf(typeof(CapitalStrategyRCTL), loan.CapitalStrategy);
 
-            Loan rctl = Loan.CreateRCTL(Commitment, Outstanding, RiskRating, _maturity, _expiry);
+            Loan rctl = Loan.CreateRCTL(Commitment, Outstanding, RiskRating, this._maturity, this._expiry);
 
             Assert.IsInstanceOf(typeof(CapitalStrategyRCTL), rctl.CapitalStrategy);
         }

@@ -1,8 +1,8 @@
-﻿﻿using NUnit.Framework;
-using System;
+﻿using System;
+using NUnit.Framework;
 using ReplaceConstructorsWithCreationMethods.InitialCode;
 
-namespace RefactoringToPatterns.ReplaceConstructorsWithCreationMethods.InitialCode
+namespace RefactoringToPatterns.Tests.ReplaceConstructorsWithCreationMethods.InitialCode
 {
     [TestFixture]
     public class CapitalCalculationTests
@@ -24,36 +24,36 @@ namespace RefactoringToPatterns.ReplaceConstructorsWithCreationMethods.InitialCo
         [Test]
         public void test_term_loan_no_payments()
         {
-            Loan loan = new Loan(Commitment, RiskRating, _maturity);
+            Loan loan = new Loan(Commitment, RiskRating, this._maturity);
             Assert.IsInstanceOf(typeof(CapitalStrategyTermLoan), loan.CapitalStrategy);
         }
 
         [Test]
         public void test_term_loan_one_payment()
         {
-            Loan loan = new Loan(Commitment, RiskRating, _maturity);
+            Loan loan = new Loan(Commitment, RiskRating, this._maturity);
             Assert.IsInstanceOf(typeof(CapitalStrategyTermLoan), loan.CapitalStrategy);
         }
 
         [Test]
         public void test_revolver_loan_no_payments()
         {
-            Loan loan = new Loan(Commitment, RiskRating, null, _expiry);
+            Loan loan = new Loan(Commitment, RiskRating, null, this._expiry);
             Assert.IsInstanceOf(typeof(CapitalStrategyRevolver), loan.CapitalStrategy);
         }
 
         [Test]
         public void test_RCTL_loan_one_payment()
         {
-            Loan loan = new Loan(Commitment, Outstanding, RiskRating, _maturity, _expiry);
+            Loan loan = new Loan(Commitment, Outstanding, RiskRating, this._maturity, this._expiry);
             Assert.IsInstanceOf(typeof(CapitalStrategyRCTL), loan.CapitalStrategy);
         }
 
         [Test]
         public void test_term_loan_with_risk_adjusted_capital_strategy() {
-            Loan loan = new Loan(_riskAdjustedCapitalStrategy, 
+            Loan loan = new Loan(this._riskAdjustedCapitalStrategy, 
                                  Commitment, Outstanding, RiskRating, 
-                                 _maturity, null);
+                                 this._maturity, null);
             
             Assert.IsInstanceOf(typeof(RiskAdjustedCapitalStrategy), loan.CapitalStrategy);
         }

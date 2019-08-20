@@ -1,9 +1,9 @@
-﻿using NUnit.Framework;
+﻿using System.Collections.Generic;
 using EncapsulateClassesWithFactory.InitialCode.Descriptors;
 using EncapsulateClassesWithFactory.InitialCode.Mappers;
-using System.Collections.Generic;
+using NUnit.Framework;
 
-namespace RefactoringToPatterns.EncapsulateClassesWithFactory.InitialCode.Mappers
+namespace RefactoringToPatterns.Tests.EncapsulateClassesWithFactory.InitialCode.Mappers
 {
     [TestFixture]
     public class DescriptorMapperTests
@@ -13,14 +13,14 @@ namespace RefactoringToPatterns.EncapsulateClassesWithFactory.InitialCode.Mapper
 		[SetUp]
         public void Init()
         {
-            testDescriptorMapper = new TestingDescriptorMapper();
+            this.testDescriptorMapper = new TestingDescriptorMapper();
         }
 
         [Test]
         public void it_maps_remoteId_descriptor_as_DefaultDescriptor()
         {
             var remoteIdDescriptor = 
-                testDescriptorMapper.GetMappedDescriptorFor("remoteId");
+                this.testDescriptorMapper.GetMappedDescriptorFor("remoteId");
             
             Assert.IsInstanceOf(typeof(DefaultDescriptor),remoteIdDescriptor);
         }
@@ -29,7 +29,7 @@ namespace RefactoringToPatterns.EncapsulateClassesWithFactory.InitialCode.Mapper
 		public void it_maps_createdDate_descriptor_as_DefaultDescriptor()
 		{
 			var createdDateDescriptor = 
-                testDescriptorMapper.GetMappedDescriptorFor("createdDate");
+                this.testDescriptorMapper.GetMappedDescriptorFor("createdDate");
             
 		    Assert.IsInstanceOf(typeof(DefaultDescriptor), createdDateDescriptor);
         }
@@ -38,7 +38,7 @@ namespace RefactoringToPatterns.EncapsulateClassesWithFactory.InitialCode.Mapper
 		public void it_maps_lastChangedDate_descriptor_as_DefaultDescriptor()
 		{
 			var lastChangedDateDescriptor = 
-                testDescriptorMapper.GetMappedDescriptorFor("lastChangedDate");
+                this.testDescriptorMapper.GetMappedDescriptorFor("lastChangedDate");
             
 		    Assert.IsInstanceOf(typeof(DefaultDescriptor), lastChangedDateDescriptor);
         }
@@ -47,7 +47,7 @@ namespace RefactoringToPatterns.EncapsulateClassesWithFactory.InitialCode.Mapper
 		public void it_maps_createdBy_descriptor_as_ReferenceDescriptor()
 		{
             var createdByDescriptor = 
-                testDescriptorMapper.GetMappedDescriptorFor("createdBy");
+                this.testDescriptorMapper.GetMappedDescriptorFor("createdBy");
             
 		    Assert.IsInstanceOf(typeof(ReferenceDescriptor), createdByDescriptor);
         }
@@ -56,7 +56,7 @@ namespace RefactoringToPatterns.EncapsulateClassesWithFactory.InitialCode.Mapper
 		public void it_maps_lastChangedBy_descriptor_ReferenceDescriptor()
 		{
 			var lastChangedByDescriptor = 
-                testDescriptorMapper.GetMappedDescriptorFor("lastChangedBy");
+                this.testDescriptorMapper.GetMappedDescriptorFor("lastChangedBy");
             
 		    Assert.IsInstanceOf(typeof(ReferenceDescriptor), lastChangedByDescriptor);
         }
@@ -65,7 +65,7 @@ namespace RefactoringToPatterns.EncapsulateClassesWithFactory.InitialCode.Mapper
 		public void it_maps_optimisticLockVersion_descriptor_as_DefaultDescriptor()
 		{
 			var optimisticLockVersionDescriptor = 
-                testDescriptorMapper.GetMappedDescriptorFor("optimisticLockVersion");
+                this.testDescriptorMapper.GetMappedDescriptorFor("optimisticLockVersion");
             
 		    Assert.IsInstanceOf(typeof(DefaultDescriptor), optimisticLockVersionDescriptor);
         }
@@ -74,7 +74,7 @@ namespace RefactoringToPatterns.EncapsulateClassesWithFactory.InitialCode.Mapper
 		public void it_does_not_map_unknown_descriptors()
 		{
             var unknownDescriptor = 
-                testDescriptorMapper.GetMappedDescriptorFor("unknown");
+                this.testDescriptorMapper.GetMappedDescriptorFor("unknown");
             
 			Assert.Null(unknownDescriptor);
 		}
@@ -84,12 +84,12 @@ namespace RefactoringToPatterns.EncapsulateClassesWithFactory.InitialCode.Mapper
         List<AttributeDescriptor> descriptors;
 
         public TestingDescriptorMapper() {
-            descriptors = CreateAttributeDescriptors();
+            this.descriptors = this.CreateAttributeDescriptors();
         }
 
 		public AttributeDescriptor GetMappedDescriptorFor(string descriptorName)
 		{
-			return descriptors.Find(descriptor => descriptor.DescriptorName == descriptorName);
+			return this.descriptors.Find(descriptor => descriptor.DescriptorName == descriptorName);
 		}
     }
 }

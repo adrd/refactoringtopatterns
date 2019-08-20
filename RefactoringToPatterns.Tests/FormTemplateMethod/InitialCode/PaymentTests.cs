@@ -1,8 +1,8 @@
-﻿using NUnit.Framework;
-using System;
+﻿using System;
 using FormTemplateMethod.InitialCode;
+using NUnit.Framework;
 
-namespace RefactoringToPatterns.FormTemplateMethod.InitialCode
+namespace RefactoringToPatterns.Tests.FormTemplateMethod.InitialCode
 {
     [TestFixture()]
     public class PaymentTests
@@ -13,8 +13,8 @@ namespace RefactoringToPatterns.FormTemplateMethod.InitialCode
         [SetUp]
         public void Init()
         {
-            _christmasDay = new DateTime(2010, 12, 25);
-            _payment = new Payment(1000.0, _christmasDay);
+            this._christmasDay = new DateTime(2010, 12, 25);
+            this._payment = new Payment(1000.0, this._christmasDay);
         }
 
         [Test()]
@@ -22,8 +22,8 @@ namespace RefactoringToPatterns.FormTemplateMethod.InitialCode
         {
 
             Assert.Multiple(() => {
-                Assert.AreEqual(1000, _payment.Amount);
-                Assert.AreEqual(_christmasDay, _payment.Date);
+                Assert.AreEqual(1000, this._payment.Amount);
+                Assert.AreEqual(this._christmasDay, this._payment.Date);
             });
 
         }

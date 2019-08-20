@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using List = ComposeMethod.InitialCode.List;
 
-namespace RefactoringToPatterns.ComposeMethod.InitialCode
+namespace RefactoringToPatterns.Tests.ComposeMethod.InitialCode
 {
     [TestFixture()]
     public class ListTests

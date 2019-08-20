@@ -1,8 +1,8 @@
 ﻿using System;
-using NUnit.Framework;
 using FormTemplateMethod.MyWork;
+using NUnit.Framework;
 
-namespace RefactoringToPatterns.FormTemplateMethod.MyWork
+namespace RefactoringToPatterns.Tests.FormTemplateMethod.MyWork
 {
     [TestFixture()]
     public class RevolverStrategyTests
@@ -18,14 +18,14 @@ namespace RefactoringToPatterns.FormTemplateMethod.MyWork
             DateTime start = November(20, 2003);
             DateTime expiry = November(20, 2007);
 
-            Loan revolverLoan = Loan.NewRevolver(LOAN_AMOUNT, start, expiry, HIGH_RISK_TAKING);
+            Loan revolverLoan = Loan.NewRevolver(this.LOAN_AMOUNT, start, expiry, this.HIGH_RISK_TAKING);
             revolverLoan.Payment(1000.00, November(20, 2004));
             revolverLoan.Payment(1000.00, November(20, 2005));
             revolverLoan.Payment(1000.00, November(20, 2006));
 
             Assert.Multiple(() => {
-                Assert.AreEqual(40027, revolverStrategy.Duration(revolverLoan), TWO_DIGIT_PRECISION);
-                Assert.AreEqual(4002700, revolverStrategy.Capital(revolverLoan), TWO_DIGIT_PRECISION);
+                Assert.AreEqual(40027, revolverStrategy.Duration(revolverLoan), this.TWO_DIGIT_PRECISION);
+                Assert.AreEqual(4002700, revolverStrategy.Capital(revolverLoan), this.TWO_DIGIT_PRECISION);
             });
         }
 

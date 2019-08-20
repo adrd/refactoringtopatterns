@@ -1,7 +1,7 @@
-﻿using NUnit.Framework;
-using EncapsulateCompositeWithBuilder.InitialCode;
+﻿using EncapsulateCompositeWithBuilder.InitialCode;
+using NUnit.Framework;
 
-namespace RefactoringToPatterns.EncapsulateCompositeWithBuilder.InitialCode
+namespace RefactoringToPatterns.Tests.EncapsulateCompositeWithBuilder.InitialCode
 {
     [TestFixture]
     public class TagNodeTests

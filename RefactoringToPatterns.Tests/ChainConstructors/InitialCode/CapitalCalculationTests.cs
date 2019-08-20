@@ -1,8 +1,8 @@
-﻿using NUnit.Framework;
+﻿using System;
 using ChainConstructors.InitialCode;
-using System;
+using NUnit.Framework;
 
-namespace RefactoringToPatterns.ChainConstructors.InitialCode
+namespace RefactoringToPatterns.Tests.ChainConstructors.InitialCode
 {
     [TestFixture]
 	public class CapitalCalculationTests

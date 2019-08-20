@@ -2,7 +2,7 @@
 using EncapsulateCompositeWithBuilder.MyWork;
 using NUnit.Framework;
 
-namespace RefactoringToPatterns.EncapsulateCompositeWithBuilder.MyWork
+namespace RefactoringToPatterns.Tests.EncapsulateCompositeWithBuilder.MyWork
 {
     [TestFixture]
     public class TagBuilderTests

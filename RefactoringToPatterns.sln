@@ -30,6 +30,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Simplification", "2. Sim
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A1DB1D18-E90C-40A7-8261-D8AB56DEC26C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReplaceConditionalDispatcherWithCommand", "ReplaceConditionalDispatcherWithCommand\ReplaceConditionalDispatcherWithCommand.csproj", "{96516522-0320-4359-95DB-335D974C5C5E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -80,6 +82,10 @@ Global
 		{B700330A-E5EC-498F-9DD4-91D7E91A1ACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B700330A-E5EC-498F-9DD4-91D7E91A1ACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B700330A-E5EC-498F-9DD4-91D7E91A1ACB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96516522-0320-4359-95DB-335D974C5C5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96516522-0320-4359-95DB-335D974C5C5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96516522-0320-4359-95DB-335D974C5C5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96516522-0320-4359-95DB-335D974C5C5E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -94,6 +100,7 @@ Global
 		{DA8504D9-4160-43FB-AEE5-E6DDC9368A91} = {60DFBAAB-344B-48A5-B8BE-BFB97B84E99E}
 		{9CA5D6B8-43D4-4325-9E7D-BF7E1E2D4C51} = {83C1172F-5B4E-4A6F-8C2C-C13A33D65DF4}
 		{B700330A-E5EC-498F-9DD4-91D7E91A1ACB} = {60DFBAAB-344B-48A5-B8BE-BFB97B84E99E}
+		{96516522-0320-4359-95DB-335D974C5C5E} = {60DFBAAB-344B-48A5-B8BE-BFB97B84E99E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4952AFDC-B206-4437-BD1E-71F61429B23B}

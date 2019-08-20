@@ -1,9 +1,9 @@
-﻿using NUnit.Framework;
+﻿using System.Collections.Generic;
 using EncapsulateClassesWithFactory.MyWork.Descriptors;
 using EncapsulateClassesWithFactory.MyWork.Mappers;
-using System.Collections.Generic;
+using NUnit.Framework;
 
-namespace RefactoringToPatterns.EncapsulateClassesWithFactory.MyWork.Mappers
+namespace RefactoringToPatterns.Tests.EncapsulateClassesWithFactory.MyWork.Mappers
 {
     [TestFixture]
     public class DescriptorMapperTests
@@ -13,14 +13,14 @@ namespace RefactoringToPatterns.EncapsulateClassesWithFactory.MyWork.Mappers
 		[SetUp]
         public void Init()
         {
-            testDescriptorMapper = new TestingDescriptorMapper();
+            this.testDescriptorMapper = new TestingDescriptorMapper();
         }
 
         [Test]
         public void it_maps_remoteId_descriptor_as_DefaultDescriptor()
         {
             AttributeDescriptor remoteIdDescriptor = 
-                testDescriptorMapper.GetMappedDescriptorFor("remoteId");
+                this.testDescriptorMapper.GetMappedDescriptorFor("remoteId");
             
             Assert.AreEqual("DefaultDescriptor", remoteIdDescriptor.GetType().Name);
         }
@@ -29,7 +29,7 @@ namespace RefactoringToPatterns.EncapsulateClassesWithFactory.MyWork.Mappers
 		public void it_maps_createdDate_descriptor_as_DefaultDescriptor()
 		{
 			AttributeDescriptor createdDateDescriptor = 
-                testDescriptorMapper.GetMappedDescriptorFor("createdDate");
+                this.testDescriptorMapper.GetMappedDescriptorFor("createdDate");
             
 		    Assert.AreEqual("DefaultDescriptor", createdDateDescriptor.GetType().Name);
         }
@@ -38,7 +38,7 @@ namespace RefactoringToPatterns.EncapsulateClassesWithFactory.MyWork.Mappers
 		public void it_maps_lastChangedDate_descriptor_as_DefaultDescriptor()
 		{
 			AttributeDescriptor lastChangedDateDescriptor = 
-                testDescriptorMapper.GetMappedDescriptorFor("lastChangedDate");
+                this.testDescriptorMapper.GetMappedDescriptorFor("lastChangedDate");
             
 		    Assert.AreEqual("DefaultDescriptor", lastChangedDateDescriptor.GetType().Name);
         }
@@ -47,7 +47,7 @@ namespace RefactoringToPatterns.EncapsulateClassesWithFactory.MyWork.Mappers
 		public void it_maps_createdBy_descriptor_as_ReferenceDescriptor()
 		{
             AttributeDescriptor createdByDescriptor = 
-                testDescriptorMapper.GetMappedDescriptorFor("createdBy");
+                this.testDescriptorMapper.GetMappedDescriptorFor("createdBy");
             
 		    Assert.AreEqual("ReferenceDescriptor", createdByDescriptor.GetType().Name);
         }
@@ -56,7 +56,7 @@ namespace RefactoringToPatterns.EncapsulateClassesWithFactory.MyWork.Mappers
 		public void it_maps_lastChangedBy_descriptor_ReferenceDescriptor()
 		{
 			AttributeDescriptor lastChangedByDescriptor = 
-                testDescriptorMapper.GetMappedDescriptorFor("lastChangedBy");
+                this.testDescriptorMapper.GetMappedDescriptorFor("lastChangedBy");
             
 		    Assert.AreEqual("ReferenceDescriptor", lastChangedByDescriptor.GetType().Name);
         }
@@ -65,7 +65,7 @@ namespace RefactoringToPatterns.EncapsulateClassesWithFactory.MyWork.Mappers
 		public void it_maps_optimisticLockVersion_descriptor_as_DefaultDescriptor()
 		{
 			AttributeDescriptor optimisticLockVersionDescriptor = 
-                testDescriptorMapper.GetMappedDescriptorFor("optimisticLockVersion");
+                this.testDescriptorMapper.GetMappedDescriptorFor("optimisticLockVersion");
             
 		    Assert.AreEqual("DefaultDescriptor", optimisticLockVersionDescriptor.GetType().Name);
         }
@@ -74,7 +74,7 @@ namespace RefactoringToPatterns.EncapsulateClassesWithFactory.MyWork.Mappers
 		public void it_does_not_map_unknown_descriptors()
 		{
             AttributeDescriptor unknownDescriptor = 
-                testDescriptorMapper.GetMappedDescriptorFor("unknown");
+                this.testDescriptorMapper.GetMappedDescriptorFor("unknown");
             
 			Assert.Null(unknownDescriptor);
 		}
@@ -84,12 +84,12 @@ namespace RefactoringToPatterns.EncapsulateClassesWithFactory.MyWork.Mappers
         List<AttributeDescriptor> descriptors;
 
         public TestingDescriptorMapper() {
-            descriptors = CreateAttributeDescriptors();
+            this.descriptors = this.CreateAttributeDescriptors();
         }
 
 		public AttributeDescriptor GetMappedDescriptorFor(string descriptorName)
 		{
-			return descriptors.Find(descriptor => descriptor.DescriptorName == descriptorName);
+			return this.descriptors.Find(descriptor => descriptor.DescriptorName == descriptorName);
 		}
     }
 }

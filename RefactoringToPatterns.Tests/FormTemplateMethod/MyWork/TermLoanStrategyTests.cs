@@ -1,8 +1,8 @@
-﻿using NUnit.Framework;
-using System;
+﻿using System;
 using FormTemplateMethod.MyWork;
+using NUnit.Framework;
 
-namespace RefactoringToPatterns.FormTemplateMethod.MyWork
+namespace RefactoringToPatterns.Tests.FormTemplateMethod.MyWork
 {
     [TestFixture()]
     public class TermLoanStrategy
@@ -17,7 +17,7 @@ namespace RefactoringToPatterns.FormTemplateMethod.MyWork
             DateTime start = November(20, 2003);
             DateTime maturity = November(20, 2006);
 
-            Loan termLoan = Loan.NewTermLoan(LOAN_AMOUNT, start, maturity, HIGH_RISK_TAKING);
+            Loan termLoan = Loan.NewTermLoan(this.LOAN_AMOUNT, start, maturity, this.HIGH_RISK_TAKING);
             termLoan.Payment(1000.00, November(20, 2004));
             termLoan.Payment(1000.00, November(20, 2005));
             termLoan.Payment(1000.00, November(20, 2006));
@@ -25,8 +25,8 @@ namespace RefactoringToPatterns.FormTemplateMethod.MyWork
             var termStrategy = new CapitalStrategyTermLoan();
 
             Assert.Multiple(() => {
-                Assert.AreEqual(20027, termStrategy.Duration(termLoan), TWO_DIGIT_PRECISION);
-                Assert.AreEqual(6008100, termStrategy.Capital(termLoan), TWO_DIGIT_PRECISION);
+                Assert.AreEqual(20027, termStrategy.Duration(termLoan), this.TWO_DIGIT_PRECISION);
+                Assert.AreEqual(6008100, termStrategy.Capital(termLoan), this.TWO_DIGIT_PRECISION);
             });
         }
 

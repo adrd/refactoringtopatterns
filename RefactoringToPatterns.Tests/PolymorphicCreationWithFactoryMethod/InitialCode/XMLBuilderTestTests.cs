@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using PolymorphicCreationWithFactoryMethod.InitialCode;
 
-namespace RefactoringToPatterns.PolymorphicCreationWithFactoryMethod.InitialCode
+namespace RefactoringToPatterns.Tests.PolymorphicCreationWithFactoryMethod.InitialCode
 {
     [TestFixture()]
     public class XMLBuilderTestTests
@@ -11,14 +11,14 @@ namespace RefactoringToPatterns.PolymorphicCreationWithFactoryMethod.InitialCode
 		[SetUp]
 		public void Init()
 		{
-			_xmlBuilderTest = new XMLBuilderTest();
-			_xmlBuilderTest.TestAddAboveRoot();
+			this._xmlBuilderTest = new XMLBuilderTest();
+			this._xmlBuilderTest.TestAddAboveRoot();
 		}
 
 		[Test]
 		public void test_XMLBuilderTest_has_an_XMLBuilder()
 		{
-			Assert.IsInstanceOf(typeof(XMLBuilder), _xmlBuilderTest.Builder);
+			Assert.IsInstanceOf(typeof(XMLBuilder), this._xmlBuilderTest.Builder);
 		}
     }
 }

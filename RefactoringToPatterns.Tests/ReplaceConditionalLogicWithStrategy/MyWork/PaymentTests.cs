@@ -1,8 +1,8 @@
-﻿using NUnit.Framework;
-using System;
+﻿using System;
+using NUnit.Framework;
 using ReplaceConditionalLogicWithStrategy.MyWork;
 
-namespace RefactoringToPatterns.ReplaceConditionalLogicWithStrategy.MyWork
+namespace RefactoringToPatterns.Tests.ReplaceConditionalLogicWithStrategy.MyWork
 {
     [TestFixture()]
     public class PaymentTests
@@ -13,8 +13,8 @@ namespace RefactoringToPatterns.ReplaceConditionalLogicWithStrategy.MyWork
         [SetUp]
         public void Init()
         {
-            _christmasDay = new DateTime(2010, 12, 25);
-            _payment = new Payment(1000.0, _christmasDay);
+            this._christmasDay = new DateTime(2010, 12, 25);
+            this._payment = new Payment(1000.0, this._christmasDay);
         }
 
         [Test()]
@@ -22,8 +22,8 @@ namespace RefactoringToPatterns.ReplaceConditionalLogicWithStrategy.MyWork
         {
             
             Assert.Multiple(() => {
-                Assert.AreEqual(1000, _payment.Amount);
-                Assert.AreEqual(_christmasDay, _payment.Date);
+                Assert.AreEqual(1000, this._payment.Amount);
+                Assert.AreEqual(this._christmasDay, this._payment.Date);
             });
 
         }
