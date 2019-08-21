@@ -3,6 +3,7 @@ using ReplaceStateAlteringConditionalsWithState.MyWork.States;
 
 namespace ReplaceStateAlteringConditionalsWithState.MyWork
 {
+    // Context class
     public class SystemPermission
     {
         private SystemProfile _profile = null;

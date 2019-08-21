@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -39,18 +39,15 @@
     <Compile Include="InitialCode\CapitalStrategyAdvisedLine.cs" />
     <Compile Include="InitialCode\CapitalStrategyRevolver.cs" />
     <Compile Include="InitialCode\CapitalStrategyTermLoan.cs" />
-    <Compile Include="MyWork\CapitalStrategy.cs" />
-    <Compile Include="MyWork\CapitalStrategyAdvisedLine.cs" />
-    <Compile Include="MyWork\CapitalStrategyRevolver.cs" />
-    <Compile Include="MyWork\CapitalStrategyTermLoan.cs" />
+    <Compile Include="MyWork\Strategies\CapitalStrategy.cs" />
+    <Compile Include="MyWork\Strategies\CapitalStrategyAdvisedLine.cs" />
+    <Compile Include="MyWork\Strategies\CapitalStrategyRevolver.cs" />
+    <Compile Include="MyWork\Strategies\CapitalStrategyTermLoan.cs" />
     <Compile Include="MyWork\Loan.cs" />
     <Compile Include="MyWork\Payment.cs" />
     <Compile Include="MyWork\RiskFactor.cs" />
     <Compile Include="MyWork\UnusedRiskFactors.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="InitialCode\" />
-    <Folder Include="MyWork\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

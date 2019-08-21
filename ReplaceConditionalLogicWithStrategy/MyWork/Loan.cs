@@ -4,21 +4,22 @@ using ReplaceConditionalLogicWithStrategy.MyWork.Strategies;
 
 namespace ReplaceConditionalLogicWithStrategy.MyWork
 {
+    // Context class
     public class Loan
     {
-        double _commitment = 1.0;
+        Double _commitment = 1.0;
         private DateTime? _expiry;
         private DateTime? _maturity;
-        private double _outstanding;
+        private Double _outstanding;
         IList<Payment> _payments = new List<Payment>();
         private DateTime? _today = DateTime.Now;
         private DateTime _start;
         
-        private double _riskRating;
-        private double _unusedPercentage;
+        private Double _riskRating;
+        private Double _unusedPercentage;
         private readonly CapitalStrategy _capitalStrategy = null;
 
-        private Loan(double commitment, double notSureWhatThisIs, DateTime start, DateTime? expiry, DateTime? maturity, int riskRating, CapitalStrategy capitalStrategy)
+        private Loan(Double commitment, Double notSureWhatThisIs, DateTime start, DateTime? expiry, DateTime? maturity, Int32 riskRating, CapitalStrategy capitalStrategy)
         {
             this._expiry = expiry;
             this._commitment = commitment;
@@ -78,7 +79,7 @@ namespace ReplaceConditionalLogicWithStrategy.MyWork
                             null, riskRating, new CapitalStrategyRevolver());
         }
 
-        public static Loan NewAdvisedLine(double commitment, DateTime start, DateTime expiry, int riskRating)
+        public static Loan NewAdvisedLine(Double commitment, DateTime start, DateTime expiry, Int32 riskRating)
         {
             if (riskRating > 3) return null;
             Loan advisedLine = new Loan(commitment, 0, start, expiry,
@@ -87,9 +88,9 @@ namespace ReplaceConditionalLogicWithStrategy.MyWork
             return advisedLine;
         }
 
-        public void Payment(double amount, DateTime paymentDate)
+        public void Payment(Double amount, DateTime paymentDate)
         {
-            _payments.Add(new Payment(amount, paymentDate));
+            this._payments.Add(new Payment(amount, paymentDate));
         }
 
         public Double Capital() {
@@ -107,26 +108,26 @@ namespace ReplaceConditionalLogicWithStrategy.MyWork
 
         
 
-        internal double GetUnusedPercentage()
+        internal Double GetUnusedPercentage()
         {
-            return _unusedPercentage;
+            return this._unusedPercentage;
         }
 
-        public void SetUnusedPercentage(double unusedPercentage) 
+        public void SetUnusedPercentage(Double unusedPercentage) 
         {
-            _unusedPercentage = unusedPercentage;
+            this._unusedPercentage = unusedPercentage;
         }
 
         internal Double UnusedRiskAmount()
         {
-            return (_commitment - _outstanding);
+            return (this._commitment - this._outstanding);
         }
 
         
 
-        internal double OutstandingRiskAmount()
+        internal Double OutstandingRiskAmount()
         {
-            return _outstanding;
+            return this._outstanding;
         }
     }
 }

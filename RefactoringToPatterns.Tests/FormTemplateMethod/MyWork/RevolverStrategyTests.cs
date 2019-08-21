@@ -1,5 +1,6 @@
 ﻿using System;
 using FormTemplateMethod.MyWork;
+using FormTemplateMethod.MyWork.Strategies;
 using NUnit.Framework;
 
 namespace RefactoringToPatterns.Tests.FormTemplateMethod.MyWork
