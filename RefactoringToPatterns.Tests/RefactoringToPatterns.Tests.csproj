@@ -64,6 +64,8 @@
     <Compile Include="EncapsulateCompositeWithBuilder\InitialCode\TagNodeTests.cs" />
     <Compile Include="EncapsulateCompositeWithBuilder\MyWork\TagNodeTests.cs" />
     <Compile Include="ReplaceImplicitTreeWithComposite\MyWork\TagNodeTests.cs" />
+    <Compile Include="ReplaceOneOrManyDistinctionsWithComposite\InitialCode\ProductRepositoryTests.cs" />
+    <Compile Include="ReplaceOneOrManyDistinctionsWithComposite\MyWork\ProductRepositoryTests.cs" />
     <Compile Include="ReplaceStateAlteringConditionalsWithState\InitialCode\SystemPermissionTests.cs" />
     <Compile Include="ReplaceStateAlteringConditionalsWithState\MyWork\SystemPermissionTests.cs" />
   </ItemGroup>
@@ -106,6 +108,10 @@
     <ProjectReference Include="..\EncapsulateCompositeWithBuilder\EncapsulateCompositeWithBuilder.csproj">
       <Project>{9CA5D6B8-43D4-4325-9E7D-BF7E1E2D4C51}</Project>
       <Name>EncapsulateCompositeWithBuilder</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReplaceOneOrManyDistinctionsWithComposite\ReplaceOneOrManyDistinctionsWithComposite.csproj">
+      <Project>{900D3DD6-EF55-48D8-983B-76D1795BF5CC}</Project>
+      <Name>ReplaceOneOrManyDistinctionsWithComposite</Name>
     </ProjectReference>
     <ProjectReference Include="..\ReplaceStateAlteringConditionalsWithState\ReplaceStateAlteringConditionalsWithState.csproj">
       <Project>{B700330A-E5EC-498F-9DD4-91D7E91A1ACB}</Project>
