@@ -59,6 +59,8 @@
     <Compile Include="FormTemplateMethod\MyWork\TermLoanStrategyTests.cs" />
     <Compile Include="ComposeMethod\InitialCode\ListTests.cs" />
     <Compile Include="ComposeMethod\MyWork\ListTests.cs" />
+    <Compile Include="ReplaceImplicitLanguageWithInterpreter\InitialCode\ProductFinderTests.cs" />
+    <Compile Include="ReplaceImplicitLanguageWithInterpreter\MyWork\ProductFinderTests.cs" />
     <Compile Include="ReplaceImplicitTreeWithComposite\InitialCode\OrdersWriterWithOrdersTests.cs" />
     <Compile Include="ReplaceImplicitTreeWithComposite\MyWork\OrdersWriterWithOrdersTests.cs" />
     <Compile Include="EncapsulateCompositeWithBuilder\InitialCode\TagNodeTests.cs" />
@@ -100,6 +102,10 @@
     <ProjectReference Include="..\ComposeMethod\ComposeMethod.csproj">
       <Project>{DB582B2C-1FED-426E-8DBC-9618ECA07843}</Project>
       <Name>ComposeMethod</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReplaceImplicitLanguageWithInterpreter\ReplaceImplicitLanguageWithInterpreter.csproj">
+      <Project>{248DED6B-506A-4D74-A186-12E80417F47E}</Project>
+      <Name>ReplaceImplicitLanguageWithInterpreter</Name>
     </ProjectReference>
     <ProjectReference Include="..\ReplaceImplicitTreeWithComposite\ReplaceImplicitTreeWithComposite.csproj">
       <Project>{DA8504D9-4160-43FB-AEE5-E6DDC9368A91}</Project>

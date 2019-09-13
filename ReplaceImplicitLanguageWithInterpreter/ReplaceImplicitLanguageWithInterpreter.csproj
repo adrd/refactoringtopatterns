@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{248DED6B-506A-4D74-A186-12E80417F47E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ReplaceImplicitLanguageWithInterpreter</RootNamespace>
+    <AssemblyName>ReplaceImplicitLanguageWithInterpreter</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="InitialCode\Product.cs" />
+    <Compile Include="InitialCode\ProductColor.cs" />
+    <Compile Include="InitialCode\ProductFinder.cs" />
+    <Compile Include="InitialCode\ProductRepository.cs" />
+    <Compile Include="InitialCode\ProductSize.cs" />
+    <Compile Include="MyWork\Specifications\AndSpecification.cs" />
+    <Compile Include="MyWork\Specifications\BelowPriceSpecification.cs" />
+    <Compile Include="MyWork\Specifications\ColorSpecification.cs" />
+    <Compile Include="MyWork\Specifications\NotSpecification.cs" />
+    <Compile Include="MyWork\Specifications\OrSpecification.cs" />
+    <Compile Include="MyWork\Specifications\PriceSpecification.cs" />
+    <Compile Include="MyWork\Product.cs" />
+    <Compile Include="MyWork\ProductColor.cs" />
+    <Compile Include="MyWork\ProductFinder.cs" />
+    <Compile Include="MyWork\ProductRepository.cs" />
+    <Compile Include="MyWork\ProductSize.cs" />
+    <Compile Include="MyWork\Specifications\SizeSpecification.cs" />
+    <Compile Include="MyWork\Specifications\Specification.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
