@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{248DED6B-506A-4D74-A186-12E80417F47E}</ProjectGuid>
+    <ProjectGuid>{75C46763-7F3A-46BE-83E3-3B3246EFD7BD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ReplaceImplicitLanguageWithInterpreter</RootNamespace>
-    <AssemblyName>ReplaceImplicitLanguageWithInterpreter</AssemblyName>
+    <RootNamespace>ReplaceTypeCodeWithClass</RootNamespace>
+    <AssemblyName>ReplaceTypeCodeWithClass</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,25 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InitialCode\Product.cs" />
-    <Compile Include="InitialCode\ProductColor.cs" />
-    <Compile Include="InitialCode\ProductFinder.cs" />
-    <Compile Include="InitialCode\ProductRepository.cs" />
-    <Compile Include="InitialCode\ProductSize.cs" />
-    <Compile Include="MyWork\Specifications\AndSpecification.cs" />
-    <Compile Include="MyWork\Specifications\BelowPriceSpecification.cs" />
-    <Compile Include="MyWork\Specifications\ColorSpecification.cs" />
-    <Compile Include="MyWork\Specifications\CompositeSpecification.cs" />
-    <Compile Include="MyWork\Specifications\NotSpecification.cs" />
-    <Compile Include="MyWork\Specifications\OrSpecification.cs" />
-    <Compile Include="MyWork\Specifications\PriceSpecification.cs" />
-    <Compile Include="MyWork\Product.cs" />
-    <Compile Include="MyWork\ProductColor.cs" />
-    <Compile Include="MyWork\ProductFinder.cs" />
-    <Compile Include="MyWork\ProductRepository.cs" />
-    <Compile Include="MyWork\ProductSize.cs" />
-    <Compile Include="MyWork\Specifications\SizeSpecification.cs" />
-    <Compile Include="MyWork\Specifications\Specification.cs" />
+    <Compile Include="InitialCode\SystemPermission.cs" />
+    <Compile Include="MyWork\PermissionState.cs" />
+    <Compile Include="MyWork\SystemPermission.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

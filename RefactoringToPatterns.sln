@@ -46,6 +46,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtractAdapter", "ExtractAd
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReplaceImplicitLanguageWithInterpreter", "ReplaceImplicitLanguageWithInterpreter\ReplaceImplicitLanguageWithInterpreter.csproj", "{248DED6B-506A-4D74-A186-12E80417F47E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Protection", "4. Protection", "{0E0C30E9-C615-4C16-8896-7C56D30711A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReplaceTypeCodeWithClass", "ReplaceTypeCodeWithClass\ReplaceTypeCodeWithClass.csproj", "{75C46763-7F3A-46BE-83E3-3B3246EFD7BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -124,6 +128,10 @@ Global
 		{248DED6B-506A-4D74-A186-12E80417F47E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{248DED6B-506A-4D74-A186-12E80417F47E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{248DED6B-506A-4D74-A186-12E80417F47E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75C46763-7F3A-46BE-83E3-3B3246EFD7BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75C46763-7F3A-46BE-83E3-3B3246EFD7BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75C46763-7F3A-46BE-83E3-3B3246EFD7BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75C46763-7F3A-46BE-83E3-3B3246EFD7BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -146,6 +154,7 @@ Global
 		{886B2076-AC8F-437B-AB74-52B52F3AFED0} = {DBE0B587-7773-4878-9FFE-B39FC05F8768}
 		{90D4B2C2-952A-478A-B578-354AB90BD691} = {DBE0B587-7773-4878-9FFE-B39FC05F8768}
 		{248DED6B-506A-4D74-A186-12E80417F47E} = {DBE0B587-7773-4878-9FFE-B39FC05F8768}
+		{75C46763-7F3A-46BE-83E3-3B3246EFD7BD} = {0E0C30E9-C615-4C16-8896-7C56D30711A8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4952AFDC-B206-4437-BD1E-71F61429B23B}

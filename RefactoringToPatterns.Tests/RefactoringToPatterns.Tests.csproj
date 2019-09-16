@@ -70,6 +70,8 @@
     <Compile Include="ReplaceOneOrManyDistinctionsWithComposite\MyWork\ProductRepositoryTests.cs" />
     <Compile Include="ReplaceStateAlteringConditionalsWithState\InitialCode\SystemPermissionTests.cs" />
     <Compile Include="ReplaceStateAlteringConditionalsWithState\MyWork\SystemPermissionTests.cs" />
+    <Compile Include="ReplaceTypeCodeWithClass\InitialCode\SystemPermissionTests.cs" />
+    <Compile Include="ReplaceTypeCodeWithClass\MyWork\SystemPermissionTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -122,6 +124,10 @@
     <ProjectReference Include="..\ReplaceStateAlteringConditionalsWithState\ReplaceStateAlteringConditionalsWithState.csproj">
       <Project>{B700330A-E5EC-498F-9DD4-91D7E91A1ACB}</Project>
       <Name>ReplaceStateAlteringConditionalsWithState</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReplaceTypeCodeWithClass\ReplaceTypeCodeWithClass.csproj">
+      <Project>{75C46763-7F3A-46BE-83E3-3B3246EFD7BD}</Project>
+      <Name>ReplaceTypeCodeWithClass</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
