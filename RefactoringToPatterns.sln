@@ -52,6 +52,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReplaceTypeCodeWithClass", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LimitInstantiationWithSingleton", "LimitInstantiationWithSingleton\LimitInstantiationWithSingleton.csproj", "{F7676DCA-8748-4007-B621-794C3E084AC6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntroduceNullObject", "IntroduceNullObject\IntroduceNullObject.csproj", "{E792A108-4DFF-4E07-968C-2E9D58121DAD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -138,6 +140,10 @@ Global
 		{F7676DCA-8748-4007-B621-794C3E084AC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7676DCA-8748-4007-B621-794C3E084AC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7676DCA-8748-4007-B621-794C3E084AC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E792A108-4DFF-4E07-968C-2E9D58121DAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E792A108-4DFF-4E07-968C-2E9D58121DAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E792A108-4DFF-4E07-968C-2E9D58121DAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E792A108-4DFF-4E07-968C-2E9D58121DAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -162,6 +168,7 @@ Global
 		{248DED6B-506A-4D74-A186-12E80417F47E} = {DBE0B587-7773-4878-9FFE-B39FC05F8768}
 		{75C46763-7F3A-46BE-83E3-3B3246EFD7BD} = {0E0C30E9-C615-4C16-8896-7C56D30711A8}
 		{F7676DCA-8748-4007-B621-794C3E084AC6} = {0E0C30E9-C615-4C16-8896-7C56D30711A8}
+		{E792A108-4DFF-4E07-968C-2E9D58121DAD} = {0E0C30E9-C615-4C16-8896-7C56D30711A8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4952AFDC-B206-4437-BD1E-71F61429B23B}

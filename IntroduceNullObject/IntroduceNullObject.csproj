@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F7676DCA-8748-4007-B621-794C3E084AC6}</ProjectGuid>
+    <ProjectGuid>{E792A108-4DFF-4E07-968C-2E9D58121DAD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LimitInstantiationWithSingleton</RootNamespace>
-    <AssemblyName>LimitInstantiationWithSingleton</AssemblyName>
+    <RootNamespace>IntroduceNullObject</RootNamespace>
+    <AssemblyName>IntroduceNullObject</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,16 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InitialCode\States\PermissionRequested.cs" />
-    <Compile Include="InitialCode\States\PermissionClaimed.cs" />
-    <Compile Include="InitialCode\States\PermissionState.cs" />
-    <Compile Include="InitialCode\SystemAdmin.cs" />
-    <Compile Include="InitialCode\SystemPermission.cs" />
-    <Compile Include="MyWork\States\PermissionClaimed.cs" />
-    <Compile Include="MyWork\States\PermissionRequested.cs" />
-    <Compile Include="MyWork\States\PermissionState.cs" />
-    <Compile Include="MyWork\SystemAdmin.cs" />
-    <Compile Include="MyWork\SystemPermission.cs" />
+    <Compile Include="InitialCode\Applet.cs" />
+    <Compile Include="InitialCode\MouseEventHandler.cs" />
+    <Compile Include="InitialCode\Event.cs" />
+    <Compile Include="InitialCode\GraphicsContext.cs" />
+    <Compile Include="InitialCode\NavigationApplet.cs" />
+    <Compile Include="MyWork\Applet.cs" />
+    <Compile Include="MyWork\Event.cs" />
+    <Compile Include="MyWork\GraphicsContext.cs" />
+    <Compile Include="MyWork\MouseEventHandler.cs" />
+    <Compile Include="MyWork\NavigationApplet.cs" />
+    <Compile Include="MyWork\NullMouseEventHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

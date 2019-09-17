@@ -5,7 +5,7 @@ namespace LimitInstantiationWithSingleton.MyWork.States
     public sealed class PermissionRequested : PermissionState
     {
         // Class/Type data
-        public static readonly PermissionState Requested = new PermissionRequested("REQUESTED");
+        private static readonly PermissionState Requested = new PermissionRequested("REQUESTED");
 
         // Instance/Object data
         private readonly String _name;
