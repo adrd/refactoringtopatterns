@@ -58,6 +58,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Accumulation", "5. Accum
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoveAccumulationToCollectingParameter", "MoveAccumulationToCollectingParameter\MoveAccumulationToCollectingParameter.csproj", "{6E2AA022-0DB9-4F2B-B592-6ABEBCDC405D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoveAccumulationToVisitor", "MoveAccumulationToVisitor\MoveAccumulationToVisitor.csproj", "{AAC691B5-6CE1-4797-BCB4-6ECA1841D8A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -152,6 +154,10 @@ Global
 		{6E2AA022-0DB9-4F2B-B592-6ABEBCDC405D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E2AA022-0DB9-4F2B-B592-6ABEBCDC405D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E2AA022-0DB9-4F2B-B592-6ABEBCDC405D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAC691B5-6CE1-4797-BCB4-6ECA1841D8A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAC691B5-6CE1-4797-BCB4-6ECA1841D8A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAC691B5-6CE1-4797-BCB4-6ECA1841D8A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAC691B5-6CE1-4797-BCB4-6ECA1841D8A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -178,6 +184,7 @@ Global
 		{F7676DCA-8748-4007-B621-794C3E084AC6} = {0E0C30E9-C615-4C16-8896-7C56D30711A8}
 		{E792A108-4DFF-4E07-968C-2E9D58121DAD} = {0E0C30E9-C615-4C16-8896-7C56D30711A8}
 		{6E2AA022-0DB9-4F2B-B592-6ABEBCDC405D} = {2741E094-EEBA-44DF-85E8-AE77C29477C5}
+		{AAC691B5-6CE1-4797-BCB4-6ECA1841D8A0} = {2741E094-EEBA-44DF-85E8-AE77C29477C5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4952AFDC-B206-4437-BD1E-71F61429B23B}
