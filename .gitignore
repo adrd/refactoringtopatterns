@@ -46,3 +46,6 @@ npm-debug.log
 
 # WebStorm
 .idea
+
+#ncrunch
+.ncrunchsolution

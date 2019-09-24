@@ -66,6 +66,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnifyInterfaces", "UnifyInt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtractParameter", "ExtractParameter\ExtractParameter.csproj", "{F7AEA17F-471F-477A-A1CE-F5270BD0BE28}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoveEmbellishmentToDecorator", "MoveEmbellishmentToDecorator\MoveEmbellishmentToDecorator.csproj", "{37A0DC20-12C0-4D61-8982-900F2086CA1E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -172,6 +174,10 @@ Global
 		{F7AEA17F-471F-477A-A1CE-F5270BD0BE28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7AEA17F-471F-477A-A1CE-F5270BD0BE28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7AEA17F-471F-477A-A1CE-F5270BD0BE28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37A0DC20-12C0-4D61-8982-900F2086CA1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37A0DC20-12C0-4D61-8982-900F2086CA1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37A0DC20-12C0-4D61-8982-900F2086CA1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37A0DC20-12C0-4D61-8982-900F2086CA1E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -202,6 +208,7 @@ Global
 		{AAC691B5-6CE1-4797-BCB4-6ECA1841D8A0} = {2741E094-EEBA-44DF-85E8-AE77C29477C5}
 		{131F99B4-E648-4D30-9A1A-5F19B9A49B09} = {501F4B31-A9D8-40A2-AA8C-462B706BCBB7}
 		{F7AEA17F-471F-477A-A1CE-F5270BD0BE28} = {501F4B31-A9D8-40A2-AA8C-462B706BCBB7}
+		{37A0DC20-12C0-4D61-8982-900F2086CA1E} = {60DFBAAB-344B-48A5-B8BE-BFB97B84E99E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4952AFDC-B206-4437-BD1E-71F61429B23B}
