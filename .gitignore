@@ -47,5 +47,8 @@ npm-debug.log
 # WebStorm
 .idea
 
-#ncrunch
-.ncrunchsolution
+# NCrunch
+_NCrunch_*
+.*crunch*.local.xml
+nCrunchTemp_*
+RefactoringToPatterns.v3.ncrunchsolution

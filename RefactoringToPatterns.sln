@@ -70,6 +70,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoveEmbellishmentToDecorato
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoveCreationKnowledgeToFactory", "MoveCreationKnowledgeToFactory\MoveCreationKnowledgeToFactory.csproj", "{2934E4C3-B051-4397-80CC-4168356647B5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InlineSingleton", "InlineSingleton\InlineSingleton.csproj", "{ABBF0034-10FA-474B-B358-D807B4BCCD8C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -184,6 +186,10 @@ Global
 		{2934E4C3-B051-4397-80CC-4168356647B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2934E4C3-B051-4397-80CC-4168356647B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2934E4C3-B051-4397-80CC-4168356647B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABBF0034-10FA-474B-B358-D807B4BCCD8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABBF0034-10FA-474B-B358-D807B4BCCD8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABBF0034-10FA-474B-B358-D807B4BCCD8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABBF0034-10FA-474B-B358-D807B4BCCD8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -216,6 +222,7 @@ Global
 		{F7AEA17F-471F-477A-A1CE-F5270BD0BE28} = {501F4B31-A9D8-40A2-AA8C-462B706BCBB7}
 		{37A0DC20-12C0-4D61-8982-900F2086CA1E} = {60DFBAAB-344B-48A5-B8BE-BFB97B84E99E}
 		{2934E4C3-B051-4397-80CC-4168356647B5} = {83C1172F-5B4E-4A6F-8C2C-C13A33D65DF4}
+		{ABBF0034-10FA-474B-B358-D807B4BCCD8C} = {83C1172F-5B4E-4A6F-8C2C-C13A33D65DF4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4952AFDC-B206-4437-BD1E-71F61429B23B}
